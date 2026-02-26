@@ -16,3 +16,6 @@ dev = [
 
 [tool.pytest.ini_options]
 pythonpath = "."
+
+[project.urls]
+Repository = "https://github.com/UlrikChristensenGit/argbox.git"
