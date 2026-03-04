@@ -1,6 +1,6 @@
 [project]
 name = "argbox"
-version = "0.2.1"
+version = "0.2.2"
 description = "Interact with arguments passed to a function by their parameter name or position"
 readme = "README.md"
 requires-python = ">=3.10.8"
@@ -19,3 +19,4 @@ pythonpath = "."
 
 [project.urls]
 Repository = "https://github.com/UlrikChristensenGit/argbox.git"
+
