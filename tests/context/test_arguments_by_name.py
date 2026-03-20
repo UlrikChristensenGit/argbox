@@ -4,6 +4,8 @@ from argbox import Context
 
 
 def return_map(names: list[str], expand_varargs: bool = False):
+    """Helper decorator that returns a mapping of argument names to their values."""
+
     def wrapper(func):
         def wrapped(*args, **kwargs):
             ctx = Context(func, args, kwargs, expand_varargs)
