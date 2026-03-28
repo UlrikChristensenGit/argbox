@@ -13,6 +13,8 @@ h1#overview {
 
 ![alt text](logo.png){: style="transform: scale(0.5); align: center ; display: block; margin-left: auto; margin-right: auto;"}
 
+## What is `argbox`?
+
 `argbox` is a Python package for interacting with the arguments passed to a function by their respective parameter name or position in the function's signature:
 
 ```py title="Decorator example" hl_lines="5 6 7"
@@ -50,3 +52,13 @@ The decorated function behaves the same no matter if arguments are inputted as p
 ```
 
 1.  Wait, shouldn't this print `20 20`, since the 0th argument is now `20`? No! The entire point of`argbox` is to use the names and position of the *parameters* - not the passed arguments.
+
+You can either use the core functionality of `argbox`, or some of the helper functions we have made for useful patterns such as [dispatching](./dispatching.md) or [preprocessing](./preprocessing.md) functions.
+
+## Installation
+
+The package is available on PyPI:
+
+```bash
+pip install argbox
+```
