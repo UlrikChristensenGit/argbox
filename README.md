@@ -3,12 +3,14 @@
 When defining Python decorators we sometimes want to interact with the inputted arguments by their respective parameter name or position in the function's signature. This is where `argbox` comes in handy:
 
 ```python
+import argbox
+
 def decorator(func):
     def wrapper(*args, **kwargs):
-        ctx = Context(func, args, kwargs)
-        arg_0 = ctx.get_arg(position=0)
-        arg_y = ctx.get_arg(name="y")
-        print(f"Parameter at position 0: {arg_0}, Parameter with name 'y': {arg_y}")
+        ctx = argbox.Context(func, args, kwargs) # (1)!
+        param_0_arg = ctx.get_arg(position=0) # (2)!
+        param_y_arg = ctx.get_arg(name="y") # (3)!
+        print(f"Parameter 0={param_0_arg} y={param_y_arg}")
         return func(*ctx.args, **ctx.kwargs)
     return wrapper
 
@@ -19,15 +21,15 @@ def func(x, y):
 
 This decorator will work no matter if arguments are inputted as positional or keyword arguments; and no matter the ordering of the keyword arguments:
 
-```python
+```py
 >>> func(1, 2)
-Parameter at position 0: 1, Parameter with name 'y': 2
+Parameter 0=1 y=2
 >>> func(1, y=2)
-Parameter at position 0: 1, Parameter with name 'y': 2
+Parameter 0=1 y=2
 >>> func(x=1, y=2)
-Parameter at position 0: 1, Parameter with name 'y': 2
+Parameter 0=1 y=2
 >>> func(y=2, x=1)
-Parameter at position 0: 1, Parameter with name 'y': 2
+Parameter 0=1 y=2
 ```
 
 ## Example 1

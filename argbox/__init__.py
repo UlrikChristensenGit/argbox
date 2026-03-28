@@ -1,3 +1,4 @@
-from . import standard
 from .context import Context
-from .dispatch import dispatcher
+from .dispatching import dispatcher
+from .preprocessing import preprocessor
+from .standard import dispatch_on_rule, dispatch_on_type, preprocess_by_transformations

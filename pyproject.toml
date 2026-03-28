@@ -1,6 +1,6 @@
 [project]
 name = "argbox"
-version = "0.2.3"
+version = "0.3.0"
 description = "Interact with arguments passed to a function by their parameter name or position"
 readme = "README.md"
 requires-python = ">=3.10.8"
@@ -10,6 +10,8 @@ dependencies = []
 dev = [
     "ipykernel>=7.2.0",
     "jupyter>=1.1.1",
+    "mkdocs-material>=9.7.6",
+    "mkdocs-swan>=0.4.0",
     "numpy>=2.2.6",
     "pytest>=9.0.2",
 ]

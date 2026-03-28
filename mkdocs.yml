@@ -1,0 +1,30 @@
+site_name: ARGBOX
+theme:
+  name: material
+  palette:
+    primary: 'amber'
+  features:
+    - content.code.annotate
+    - navigation.sections
+
+nav:
+  - Overview: index.md
+  - Supported Functions: supported-functions.md
+  - Core functionality:
+    - The Context class: context.md
+    - Handling variable parameters: varargs.md
+  - Useful patterns:
+    - Dispatching: dispatching.md
+    - Preprocessing: preprocessing.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - footnotes

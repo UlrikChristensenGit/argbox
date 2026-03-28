@@ -1,5 +1,4 @@
 import functools
-import types
 from typing import Callable, Generic, ParamSpec, TypeVar
 
 from argbox.context import Context
@@ -21,6 +20,7 @@ class DispatchedFunction(Generic[BP, BR, VFP]):
         self,
         base: Callable[BP, BR],
         validator_factory: Callable[VFP, Validator],
+        expand_varargs: bool = False,
     ) -> None:
         self.is_class_method = isinstance(base, classmethod)
         self.is_static_method = isinstance(base, staticmethod)
@@ -30,6 +30,7 @@ class DispatchedFunction(Generic[BP, BR, VFP]):
             self.base = base
         self.validator_factory = validator_factory
         self.lookup_table: list[tuple[Validator, Callable[BP, BR]]] = []
+        self.expand_varargs = expand_varargs
 
     def register(
         self,
@@ -48,7 +49,7 @@ class DispatchedFunction(Generic[BP, BR, VFP]):
         *args: BP.args,
         **kwargs: BP.kwargs,
     ) -> BR:
-        ctx = Context(self.base, args, kwargs, expand_varargs=True)
+        ctx = Context(self.base, args, kwargs, expand_varargs=self.expand_varargs)
         for validator, implementation in self.lookup_table:
             if validator(ctx):
                 return implementation(*args, **kwargs)

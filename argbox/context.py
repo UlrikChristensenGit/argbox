@@ -232,3 +232,14 @@ class Context:
                     f"Invalid key type '{type(key)}' in mapping. Must be str or int."
                 )
         return new_ctx
+
+    def transform_arg(
+        self,
+        transformer: Callable[[object], object],
+        name: str | None = None,
+        position: int | None = None,
+    ):
+        arg = self.get_arg(name=name, position=position)
+        transformed_arg = transformer(arg)
+        new_ctx = self.replace_arg(transformed_arg, name=name, position=position)
+        return new_ctx
