@@ -6,6 +6,10 @@
 
 You can use the Context class to create dispatching functionality. However, due to the usefulness of this concept we have created specialized helper functions in `argbox` for the purpose.
 
+## Supported functions
+
+Unlike many other dispatching libraries, here we supports **all** patterns of function definition and calling as described [here](./supported-functions.md), including positional arguments, keyword arguments, fixed number and variable number.
+
 ## Built-in dispatchers
 We have provided some built-in dispatchers for the most common use cases
 
